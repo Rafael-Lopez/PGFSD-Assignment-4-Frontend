@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RestApiService } from './rest-api.service';
+import { ProductsComponent } from './components/products/products.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @Injectable()
 export class XhrInterceptor implements HttpInterceptor {
@@ -25,6 +27,8 @@ export class XhrInterceptor implements HttpInterceptor {
     AppComponent,
     HomeComponent,
     LoginComponent,
+    ProductsComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

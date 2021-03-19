@@ -7,13 +7,10 @@ import {RestApiService} from '../../rest-api.service';
 })
 export class HomeComponent {
 
-  products: any;
 
-  constructor(private service: RestApiService) {
+
+  constructor() {
   }
 
-  getProducts(): void {
-    const response = this.service.getProducts();
-    response.subscribe(data => this.products = data);
-  }
+
 }
