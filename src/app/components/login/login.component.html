@@ -1,14 +1,27 @@
-<form id="accesspanel" action="login" method="post">
-  <h1 id="litheader">Login Form</h1>
-  <div class="inset">
-    <p>
-      <input type="text" id="username" name="username" [(ngModel)]="username"/>
-    </p>
-    <p>
-      <input type="password" id="password" name="password" [(ngModel)]="password"/>
-    </p>
+<div class="d-flex justify-content-center">
+  <div class="row text-center ">
+    <div class="col">
+      <form action="login" method="post">
+        <div class="row p-2">
+          <div class="col-3 text-right">
+            <label for="username">Username</label>
+          </div>
+          <div class="col-9">
+            <input type="text" class="form-control" name="username" id="username" placeholder="Username" [(ngModel)]="username"/>
+          </div>
+        </div>
+        <div class="row p-2">
+          <div class="col-3 text-right">
+            <label for="password">Password</label>
+          </div>
+          <div class="col-9">
+            <input type="password" class="form-control" name="password" id="password" placeholder="Password" [(ngModel)]="password"/>
+          </div>
+        </div>
+        <div class="p-2">
+          <button type="submit" class="btn btn-primary mb-3" (click)="doLogin()">Login</button>
+        </div>
+      </form>
+    </div>
   </div>
-  <p class="p-container">
-    <input type="submit" name="Login" id="go" value="Login" (click)="doLogin()">
-  </p>
-</form>
+</div>
