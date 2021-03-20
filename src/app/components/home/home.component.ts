@@ -2,15 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import {RestApiService} from '../../rest-api.service';
 import {SharedService} from '../../shared.service';
 import {Router} from '@angular/router';
+import { FormGroup, FormControl} from '@angular/forms';
 
 @Component({
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit{
+  changePasswordForm = new FormGroup({
+    password: new FormControl('')
+  });
 
   authenticatedUser: any;
-  username: string;
-  password: string;
 
   constructor( private service: RestApiService,
                private sharedService: SharedService,
@@ -23,6 +25,11 @@ export class HomeComponent implements OnInit{
     if (!this.authenticatedUser) {
       this.router.navigate(['/login']);
     }
+  }
+
+  onSubmit(): void {
+    this.changePassword(this.changePasswordForm.value.password);
+    this.changePasswordForm.reset();
   }
 
   changePassword(password: string): void {
