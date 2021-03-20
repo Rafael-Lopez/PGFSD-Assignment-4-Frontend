@@ -11,6 +11,7 @@ import { RestApiService } from './rest-api.service';
 import { ProductsComponent } from './components/products/products.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ProductListComponent } from './components/home/product-list/product-list.component';
 
 @Injectable()
 export class XhrInterceptor implements HttpInterceptor {
@@ -30,6 +31,7 @@ export class XhrInterceptor implements HttpInterceptor {
     LoginComponent,
     ProductsComponent,
     NavbarComponent,
+    ProductListComponent,
   ],
   imports: [
     BrowserModule,
