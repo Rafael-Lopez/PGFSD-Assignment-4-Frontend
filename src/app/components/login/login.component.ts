@@ -1,24 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import {RestApiService} from '../../rest-api.service';
+import {SharedService} from '../../shared.service';
 
 @Component({
   templateUrl: './login.component.html'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   username: string;
   password: string;
-  message: any;
+  authenticatedUser: any;
 
-  constructor(private service: RestApiService, private router: Router) {
+  constructor( private service: RestApiService,
+               private sharedService: SharedService,
+               private router: Router) {
+  }
+
+  ngOnInit(): void {
+    this.sharedService.sharedAuthenticatedUser.subscribe(authenticatedUser => this.authenticatedUser = authenticatedUser);
+
+    if (this.authenticatedUser) {
+      this.router.navigate(['/home']);
+    }
   }
 
   doLogin(): void {
     const response = this.service.login(this.username, this.password);
     response.subscribe( data => {
-      this.message = data;
+      this.sharedService.nextAuthenticatedUser(data ? data.principal : null);
       this.router.navigate(['/home']);
     });
   }
