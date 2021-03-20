@@ -30,7 +30,9 @@ export class LoginComponent implements OnInit {
     response.subscribe( data => {
       this.sharedService.nextAuthenticatedUser(data ? data.principal : null);
       this.router.navigate(['/home']);
-    });
+    } , error => {
+        alert('Wrong credentials!');
+      });
   }
 
 }
