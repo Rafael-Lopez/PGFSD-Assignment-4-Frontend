@@ -1,24 +1,5 @@
 <div class="container">
-  <h1 class="text-center">User Administration</h1>
-  <div class="d-flex justify-content-center">
-    <div class="row text-center ">
-      <div class="col">
-        <form [formGroup]="changePasswordForm" (ngSubmit)="onSubmit()">
-          <div class="row p-2">
-            <div class="col-3 text-right">
-              <label>Password</label>
-            </div>
-            <div class="col-9">
-              <input type="password" class="form-control" formControlName="password" placeholder="Password"/>
-            </div>
-          </div>
-          <div class="p-2">
-            <button type="submit" class="btn btn-primary mb-3" [disabled]="!changePasswordForm.valid">Change Password</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+  <app-user-administration></app-user-administration>
   <hr>
   <app-product-list [products]="products"></app-product-list>
 </div>
