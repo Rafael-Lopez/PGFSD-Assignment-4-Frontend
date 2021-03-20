@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit{
   });
 
   authenticatedUser: any;
+  products: any;
 
   constructor( private service: RestApiService,
                private sharedService: SharedService,
@@ -25,6 +26,8 @@ export class HomeComponent implements OnInit{
     if (!this.authenticatedUser) {
       this.router.navigate(['/login']);
     }
+
+    this.service.getProducts().subscribe(data => this.products = data);
   }
 
   onSubmit(): void {
