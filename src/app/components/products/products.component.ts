@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {RestApiService} from '../../rest-api.service';
+import { faUtensils } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-products',
@@ -8,6 +9,7 @@ import {RestApiService} from '../../rest-api.service';
 })
 export class ProductsComponent implements OnInit {
   products: any;
+  faCoffee = faUtensils;
 
   constructor(private service: RestApiService) { }
 
@@ -18,5 +20,9 @@ export class ProductsComponent implements OnInit {
   getProducts(): void {
     const response = this.service.getProducts();
     response.subscribe(data => this.products = data);
+  }
+
+  addProductToCart(productId: string): void {
+    console.log(productId);
   }
 }
