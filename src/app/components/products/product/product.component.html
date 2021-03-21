@@ -1,0 +1,8 @@
+<div class="card m-3 text-center" >
+  <div class="card-body">
+    <h5 class="card-title">{{product.name}}</h5>
+    <fa-icon style="font-size: 5rem;" [icon]="faCoffee"></fa-icon>
+    <p class="card-text">{{product.description}}</p>
+    <a (click)="addProductToCart(product.id)" class="btn btn-primary">Add to cart</a>
+  </div>
+</div>

@@ -21,8 +21,4 @@ export class ProductsComponent implements OnInit {
     const response = this.service.getProducts();
     response.subscribe(data => this.products = data);
   }
-
-  addProductToCart(productId: string): void {
-    console.log(productId);
-  }
 }
