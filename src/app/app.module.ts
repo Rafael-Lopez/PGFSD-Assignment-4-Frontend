@@ -13,6 +13,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProductListComponent } from './components/home/product-list/product-list.component';
 import { UserAdministrationComponent } from './components/home/user-administration/user-administration.component';
+import { AddProductComponent } from './components/home/add-product/add-product.component';
 
 @Injectable()
 export class XhrInterceptor implements HttpInterceptor {
@@ -34,6 +35,7 @@ export class XhrInterceptor implements HttpInterceptor {
     NavbarComponent,
     ProductListComponent,
     UserAdministrationComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,

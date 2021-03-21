@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {SharedService} from './shared.service';
+import {Product} from './models/Product';
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +29,13 @@ export class RestApiService {
     });
     const body = { username: this.authenticatedUser.username, password };
     return this.http.put('http://localhost:8080/admin', body, {headers, responseType: 'json'});
+  }
+
+  public addProduct(product: Product): Observable<any> {
+    const headers = new HttpHeaders({
+      Authorization: 'Basic ' + btoa(this.authenticatedUser.username + ':' + this.authenticatedUser.password)
+    });
+    const body = { name: product.name, description: product.description, price: product.price };
+    return this.http.post('http://localhost:8080/product', body, {headers, responseType: 'json'});
   }
 }
