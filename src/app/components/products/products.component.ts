@@ -6,7 +6,7 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  @Input() products: any;
+  @Input() products: any | undefined;
   @Input() showAddToCartButton = true;
   @Input() showDeleteButton = false;
   @Input() deleteProductCallback: () => void;

@@ -9,4 +9,7 @@
       ></app-product>
     </div>
   </div>
+  <div class="alert alert-light text-center" role="alert" *ngIf="products === undefined || products.length === 0">
+    No products found
+  </div>
 </div>
