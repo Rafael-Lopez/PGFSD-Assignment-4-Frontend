@@ -15,7 +15,7 @@
     </div>
     <div class="col-sm-9">
       <app-user-administration *ngIf="selection === 'administration'"></app-user-administration>
-      <app-product-list [products]="products" *ngIf="selection === 'products'"></app-product-list>
+      <app-product-list [products]="products" [deleteProductCallback]="getProducts" *ngIf="selection === 'products'"></app-product-list>
       <app-add-product *ngIf="selection === 'addProduct'"></app-add-product>
     </div>
   </div>

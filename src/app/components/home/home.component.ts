@@ -26,7 +26,12 @@ export class HomeComponent implements OnInit{
       this.router.navigate(['/login']);
     }
 
-    this.service.getProducts().subscribe(data => this.products = data);
+    this.getProducts();
+  }
+
+  getProducts = () => {
+    this.service.getProducts()
+      .subscribe(data => this.products = data);
   }
 
   onSelection(selection: string): void {

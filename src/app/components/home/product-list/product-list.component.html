@@ -1,2 +1,7 @@
 <h1 class="text-center">Products Available</h1>
-<app-products [showAddToCartButton]="false" [showDeleteButton]="true"></app-products>
+<app-products
+  [products]="products"
+  [showAddToCartButton]="false"
+  [showDeleteButton]="true"
+  [deleteProductCallback]="deleteProductCallback">
+</app-products>

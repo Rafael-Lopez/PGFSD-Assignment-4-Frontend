@@ -15,6 +15,8 @@ import { ProductListComponent } from './components/home/product-list/product-lis
 import { UserAdministrationComponent } from './components/home/user-administration/user-administration.component';
 import { AddProductComponent } from './components/home/add-product/add-product.component';
 import { ProductComponent } from './components/products/product/product.component';
+import { SearchComponent } from './components/products/search/search.component';
+import { ShopComponent } from './components/shop/shop.component';
 
 @Injectable()
 export class XhrInterceptor implements HttpInterceptor {
@@ -38,6 +40,8 @@ export class XhrInterceptor implements HttpInterceptor {
     UserAdministrationComponent,
     AddProductComponent,
     ProductComponent,
+    SearchComponent,
+    ShopComponent,
   ],
   imports: [
     BrowserModule,

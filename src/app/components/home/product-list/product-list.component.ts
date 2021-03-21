@@ -7,6 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
   @Input() products: any;
+  @Input() deleteProductCallback: () => void;
   constructor() { }
 
   ngOnInit(): void {
