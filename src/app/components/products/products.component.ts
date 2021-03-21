@@ -19,7 +19,7 @@ export class ProductsComponent implements OnInit {
     this.getProducts();
   }
 
-  getProducts(): void {
+  getProducts = () => {
     const response = this.service.getProducts();
     response.subscribe(data => this.products = data);
   }

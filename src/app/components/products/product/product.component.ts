@@ -12,6 +12,7 @@ export class ProductComponent implements OnInit {
   @Input() product: Product;
   @Input() showAddToCartButton: boolean;
   @Input() showDeleteButton: boolean;
+  @Input() deleteProductCallback: () => void;
   faCoffee = faUtensils;
 
   constructor(private service: RestApiService) { }
@@ -24,8 +25,11 @@ export class ProductComponent implements OnInit {
   }
 
   deleteProduct(productId: number): void {
+
     this.service.deleteProduct(productId)
-      .subscribe(data => alert('Deleted!'),
+      .subscribe(data => {
+          this.deleteProductCallback();
+        },
         error => alert('Error while deleting!'));
   }
 }
