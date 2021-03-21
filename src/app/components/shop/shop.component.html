@@ -1,4 +1,7 @@
 <div class="m-2">
-  <app-search [products]="products" (filteredProducts)="onFilteredProducts($event)"></app-search>
-  <app-products [products]="products"></app-products>
+  <app-search [products]="products"
+              [resetProducts]="resetProducts"
+              (filteredProducts)="onFilteredProducts($event)">
+  </app-search>
+  <app-products [products]="filteredProducts"></app-products>
 </div>

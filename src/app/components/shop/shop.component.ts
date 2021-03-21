@@ -8,6 +8,7 @@ import {RestApiService} from '../../rest-api.service';
 })
 export class ShopComponent implements OnInit {
   products: any;
+  filteredProducts: any;
 
   constructor(private service: RestApiService) { }
 
@@ -16,11 +17,18 @@ export class ShopComponent implements OnInit {
   }
 
   getProducts = () => {
-    const response = this.service.getProducts();
-    response.subscribe(data => this.products = data);
+    this.service.getProducts()
+      .subscribe(data => {
+        this.products = data;
+        this.filteredProducts = data;
+      });
+  }
+
+  resetProducts = () => {
+    this.filteredProducts = this.products;
   }
 
   onFilteredProducts = (filteredProducts: any) => {
-    this.products = filteredProducts;
+    this.filteredProducts = filteredProducts;
   }
 }
