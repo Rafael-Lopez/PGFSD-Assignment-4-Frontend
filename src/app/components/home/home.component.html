@@ -1,7 +1,22 @@
-<div class="container">
-  <app-user-administration></app-user-administration>
-  <hr>
-  <app-product-list [products]="products"></app-product-list>
-  <hr>
-  <app-add-product></app-add-product>
+<div class="mx-5">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="list-group">
+        <a role="button" class="list-group-item list-group-item-action" [ngClass]="adminActive " (click)="onSelection('administration')">
+          Change Password
+        </a>
+        <a role="button" class="list-group-item list-group-item-action" [ngClass]="productsActive " (click)="onSelection('products')">
+          Product List
+        </a>
+        <a role="button" class="list-group-item list-group-item-action" [ngClass]="addProductActive " (click)="onSelection('addProduct')">
+          Add Product
+        </a>
+      </div>
+    </div>
+    <div class="col-sm-9">
+      <app-user-administration *ngIf="selection === 'administration'"></app-user-administration>
+      <app-product-list [products]="products" *ngIf="selection === 'products'"></app-product-list>
+      <app-add-product *ngIf="selection === 'addProduct'"></app-add-product>
+    </div>
+  </div>
 </div>
