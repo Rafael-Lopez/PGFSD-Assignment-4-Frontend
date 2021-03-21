@@ -38,4 +38,12 @@ export class RestApiService {
     const body = { name: product.name, description: product.description, price: product.price };
     return this.http.post('http://localhost:8080/product', body, {headers, responseType: 'json'});
   }
+
+  public deleteProduct(productId: number): Observable<any> {
+    const headers = new HttpHeaders({
+      Authorization: 'Basic ' + btoa(this.authenticatedUser.username + ':' + this.authenticatedUser.password)
+    });
+
+    return this.http.delete('http://localhost:8080/product/' + productId, {headers, responseType: 'json'});
+  }
 }

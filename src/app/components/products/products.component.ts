@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {RestApiService} from '../../rest-api.service';
 import { faUtensils } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,6 +9,8 @@ import { faUtensils } from '@fortawesome/free-solid-svg-icons';
 })
 export class ProductsComponent implements OnInit {
   products: any;
+  @Input() showAddToCartButton = true;
+  @Input() showDeleteButton = false;
   faCoffee = faUtensils;
 
   constructor(private service: RestApiService) { }

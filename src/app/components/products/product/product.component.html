@@ -3,6 +3,7 @@
     <h5 class="card-title">{{product.name}}</h5>
     <fa-icon style="font-size: 5rem;" [icon]="faCoffee"></fa-icon>
     <p class="card-text">{{product.description}}</p>
-    <a (click)="addProductToCart(product.id)" class="btn btn-primary">Add to cart</a>
+    <a class="btn btn-primary" (click)="addProductToCart(product.id)" *ngIf="showAddToCartButton">Add to Cart</a>
+    <a class="btn btn-primary" (click)="deleteProduct(product.id)" *ngIf="showDeleteButton">Delete</a>
   </div>
 </div>
