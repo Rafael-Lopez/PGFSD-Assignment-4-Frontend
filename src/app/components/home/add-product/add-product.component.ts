@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {RestApiService} from '../../../rest-api.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Product} from '../../../models/Product';
@@ -10,6 +10,7 @@ import {Product} from '../../../models/Product';
 })
 export class AddProductComponent implements OnInit {
 
+  @Input() addProductCallback: () => void;
   addProductForm = new FormGroup({
     name: new FormControl(''),
     description: new FormControl(''),
@@ -28,7 +29,10 @@ export class AddProductComponent implements OnInit {
 
   addProduct(product: Product): void {
     this.service.addProduct(product)
-      .subscribe( data => alert('Product added!'),
+      .subscribe( data => {
+        this.addProductCallback();
+        alert('Product added!');
+        },
         error => alert('Product could not be added!') );
   }
 }
