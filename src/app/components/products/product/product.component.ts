@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {faUtensils} from '@fortawesome/free-solid-svg-icons';
 import {Product} from '../../../models/Product';
 import {RestApiService} from '../../../rest-api.service';
+import {CartService} from '../../../cart.service';
 
 @Component({
   selector: 'app-product',
@@ -15,18 +16,17 @@ export class ProductComponent implements OnInit {
   @Input() deleteProductCallback: () => void;
   faCoffee = faUtensils;
 
-  constructor(private service: RestApiService) { }
+  constructor(private restApiService: RestApiService, private cartService: CartService) { }
 
   ngOnInit(): void {
   }
 
-  addProductToCart(productId: number): void {
-    console.log(productId);
+  addProductToCart(): void {
+    this.cartService.addProduct(this.product);
   }
 
   deleteProduct(productId: number): void {
-
-    this.service.deleteProduct(productId)
+    this.restApiService.deleteProduct(productId)
       .subscribe(data => {
           this.deleteProductCallback();
         },

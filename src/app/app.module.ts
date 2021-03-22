@@ -17,6 +17,7 @@ import { AddProductComponent } from './components/home/add-product/add-product.c
 import { ProductComponent } from './components/products/product/product.component';
 import { SearchComponent } from './components/shop/search/search.component';
 import { ShopComponent } from './components/shop/shop.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @Injectable()
 export class XhrInterceptor implements HttpInterceptor {
@@ -42,6 +43,7 @@ export class XhrInterceptor implements HttpInterceptor {
     ProductComponent,
     SearchComponent,
     ShopComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

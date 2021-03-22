@@ -4,7 +4,7 @@
     <fa-icon style="font-size: 5rem;" [icon]="faCoffee"></fa-icon>
     <p class="card-text">{{product.description}}</p>
     <p class="card-text">${{product.price}}</p>
-    <a class="btn btn-primary" (click)="addProductToCart(product.id)" *ngIf="showAddToCartButton">Add to Cart</a>
+    <a class="btn btn-primary" (click)="addProductToCart()" *ngIf="showAddToCartButton">Add to Cart</a>
     <a class="btn btn-primary" (click)="deleteProduct(product.id)" *ngIf="showDeleteButton">Delete</a>
   </div>
 </div>

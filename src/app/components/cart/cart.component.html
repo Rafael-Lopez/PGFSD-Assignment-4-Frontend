@@ -1,0 +1,23 @@
+<div class="alert alert-light text-center" role="alert" *ngIf="products.length === 0">
+  Your cart is empty
+</div>
+<div class="container" *ngIf="products.length !== 0">
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{product.id}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.description}}</td>
+      <td>{{product.price}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
