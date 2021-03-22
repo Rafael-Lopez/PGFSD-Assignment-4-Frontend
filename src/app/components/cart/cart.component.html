@@ -14,7 +14,11 @@
     <tr *ngFor="let product of products">
       <td>{{product.name}}</td>
       <td>{{product.description}}</td>
-      <td>{{product.price}}</td>
+      <td>${{product.price}}</td>
+    </tr>
+    <tr>
+      <td class="font-weight-bold" colspan="2">Total</td>
+      <td class="font-weight-bold">${{total}}</td>
     </tr>
     </tbody>
   </table>
