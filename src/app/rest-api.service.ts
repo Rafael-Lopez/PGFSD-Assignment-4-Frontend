@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {SharedService} from './shared.service';
+import {UserAuthenticationService} from './user-authentication.service';
 import {Product} from './models/Product';
 
 @Injectable({
@@ -10,8 +10,8 @@ import {Product} from './models/Product';
 export class RestApiService {
   authenticatedUser: any;
 
-  constructor(private http: HttpClient, private sharedService: SharedService) {
-    this.sharedService.sharedAuthenticatedUser.subscribe(authenticatedUser => this.authenticatedUser = authenticatedUser);
+  constructor(private http: HttpClient, private userAuthenticationService: UserAuthenticationService) {
+    this.userAuthenticationService.sharedAuthenticatedUser.subscribe(authenticatedUser => this.authenticatedUser = authenticatedUser);
   }
 
   public login(username: string, password: string): Observable<any> {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {RestApiService} from '../../../rest-api.service';
-import {SharedService} from '../../../shared.service';
+import {UserAuthenticationService} from '../../../user-authentication.service';
 
 @Component({
   selector: 'app-user-administration',
@@ -16,11 +16,11 @@ export class UserAdministrationComponent implements OnInit {
   authenticatedUser: any;
 
   constructor( private service: RestApiService,
-               private sharedService: SharedService) {
+               private userAuthenticationService: UserAuthenticationService) {
   }
 
   ngOnInit(): void {
-    this.sharedService.sharedAuthenticatedUser.subscribe(authenticatedUser => this.authenticatedUser = authenticatedUser);
+    this.userAuthenticationService.sharedAuthenticatedUser.subscribe(authenticatedUser => this.authenticatedUser = authenticatedUser);
   }
 
   onSubmit(): void {
@@ -32,7 +32,7 @@ export class UserAdministrationComponent implements OnInit {
     const response = this.service.changePassword(password);
     response.subscribe( data => {
       this.authenticatedUser.password = password;
-      this.sharedService.nextAuthenticatedUser(this.authenticatedUser);
+      this.userAuthenticationService.nextAuthenticatedUser(this.authenticatedUser);
       alert('Password updated!');
     });
   }

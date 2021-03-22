@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {RestApiService} from '../../rest-api.service';
-import {SharedService} from '../../shared.service';
+import {UserAuthenticationService} from '../../user-authentication.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -15,12 +15,12 @@ export class HomeComponent implements OnInit{
   addProductActive  = '';
 
   constructor( private service: RestApiService,
-               private sharedService: SharedService,
+               private userAuthenticationService: UserAuthenticationService,
                private router: Router) {
   }
 
   ngOnInit(): void {
-    this.sharedService.sharedAuthenticatedUser.subscribe(authenticatedUser => this.authenticatedUser = authenticatedUser);
+    this.userAuthenticationService.sharedAuthenticatedUser.subscribe(authenticatedUser => this.authenticatedUser = authenticatedUser);
 
     if (!this.authenticatedUser) {
       this.router.navigate(['/login']);
