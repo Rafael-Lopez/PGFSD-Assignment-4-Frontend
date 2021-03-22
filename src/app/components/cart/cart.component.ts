@@ -30,4 +30,8 @@ export class CartComponent implements OnInit {
     this.router.navigate([this.router.url + '/checkout']);
   }
 
+  doClearCart = () => {
+    this.cartService.clearCart();
+  }
+
 }

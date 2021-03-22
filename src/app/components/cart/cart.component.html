@@ -22,5 +22,12 @@
     </tr>
     </tbody>
   </table>
-  <button type="button" class="btn btn-success" (click)="doCheckout()">Checkout</button>
+  <div class="row">
+    <div class="col text-right">
+      <button type="button" class="btn btn-danger" (click)="doClearCart()">Clear Cart</button>
+    </div>
+    <div class="col text-left">
+      <button type="button" class="btn btn-success" (click)="doCheckout()">Checkout</button>
+    </div>
+  </div>
 </div>
