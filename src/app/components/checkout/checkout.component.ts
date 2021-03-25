@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import {CartService} from '../../cart.service';
 
 @Component({
   selector: 'app-checkout',
@@ -12,9 +14,13 @@ export class CheckoutComponent implements OnInit {
   phoneNumber: string;
   cardNumber: string;
 
-  constructor() { }
+  constructor(private router: Router, private cartService: CartService) { }
 
   ngOnInit(): void {
   }
 
+  processPayment = () => {
+    this.cartService.clearCart();
+    this.router.navigate([this.router.url + '/confirmation']);
+  }
 }
