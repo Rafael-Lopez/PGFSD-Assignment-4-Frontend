@@ -8,6 +8,7 @@ import {CartService} from '../../cart.service';
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
+  total;
   fullName: string;
   address: string;
   email: string;
@@ -17,6 +18,7 @@ export class CheckoutComponent implements OnInit {
   constructor(private router: Router, private cartService: CartService) { }
 
   ngOnInit(): void {
+    this.cartService.sharedCart.subscribe(cart => this.total = cart.reduce( ( sum, { price } ) => sum + price , 0));
   }
 
   processPayment = () => {
